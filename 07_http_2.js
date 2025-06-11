@@ -14,15 +14,15 @@ const style = `
 h1 {
 color: red;
 }
-</style>`
+</style>`;
 
 const server = http.createServer((req, res) => {
+    console.log(res.statusCode);
     
     // console.log("Has hecho una petición desde Node");
     if (req.url == "/") {
         // console.log("Conectados a la raiz del server");
-        res.writeHead(200,{"content-type": "text/html"});
-        console.log(res.statusCode);
+        res.writeHead(200,{"content-type": "text/html"});        
         res.write(style);
         res.write("<h1>Estamos en / desde Node</h1>");
         res.end();
@@ -41,6 +41,7 @@ const server = http.createServer((req, res) => {
         res.writeHead(200,{"content-type": "text/html"});
         res.write(style);
         res.write("<h1>Error 404</h1>");
+        res.write("<a href='/'>Volver a HOME</a>")
         res.end();        
         return
     }
