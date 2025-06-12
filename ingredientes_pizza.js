@@ -10,7 +10,8 @@ const ingredientes = [
     {"ingrediente": "peperoni", "precio": 1.75},
     {"ingrediente": "bacon", "precio": 2.00},
     {"ingrediente": "funghi", "precio": 1.75},
-    {"ingrediente": "piña", "precio": 2.00}
+    {"ingrediente": "piña", "precio": 2.00},
+    {"masa": "masa sin gluten", "precio": 6.00}
 ]
 
 module.exports = ingredientes
