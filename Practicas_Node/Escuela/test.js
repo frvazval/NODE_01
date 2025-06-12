@@ -11,19 +11,19 @@ if (process.argv.length == 2) {
     // process.argv[2] -> asignatura
     // mostraremos los alumnos matriculados en esa asignatura
 } else if (process.argv.length == 4) {
-// process.argv[2] -> nombre
-// process.argv[3] -> apellido
-// mostraremos las asignaturas de las que esta matriculado
+    // process.argv[2] -> nombre
+    // process.argv[3] -> apellido
+    // mostraremos las asignaturas de las que esta matriculado
 } else if (process.argv.length == 5) {
-// process.argv[2] -> nombre
-// process.argv[3] -> apellido
-// borraremos el alumno con ese nombre y apellido
+    // process.argv[2] -> nombre
+    // process.argv[3] -> apellido
+    // borraremos el alumno con ese nombre y apellido
 } else if (process.argv.length == 6) {
-// process.argv[2] -> nombre
-// process.argv[3] -> apellido
-// process.argv[4] -> edad
-// process.argv[5] -> asignatura
-// matricular al alumno con estos datos
+    // process.argv[2] -> nombre
+    // process.argv[3] -> apellido
+    // process.argv[4] -> edad
+    // process.argv[5] -> asignatura
+    // matricular al alumno con estos datos
 }
 
 
