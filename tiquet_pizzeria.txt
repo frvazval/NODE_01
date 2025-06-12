@@ -1,0 +1,4 @@
+Pizzeria Nodidi
+Has elegido pizza de masa de espelta con mozzarella, prosciutto, nduja, y parmigiano
+Importe total : 18.50€ 
+

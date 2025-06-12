@@ -1,7 +1,9 @@
+const fs = require("node:fs");
 const ingredientes_pizza = require("./ingredientes_pizza.js");
 
 let masas = [];
 let ingredientes = [];
+let tiket = "Pizzeria Nodidi\n";
 
 for (let i = 0; i < ingredientes_pizza.length; i++) {
     for (clave in ingredientes_pizza[i]) {
@@ -59,7 +61,16 @@ if (process.argv.length == 2) {
        mensaje += `y ${ingredientes[process.argv[6] - 1].ingrediente}\n`;
        total += ingredientes[process.argv[6] - 1].precio;
        console.log(mensaje, `Importe total : ${total.toFixed(2)}€`, "\n\n");
+
+       
+        tiket += mensaje;
+        tiket += `Importe total : ${total.toFixed(2)}€ \n\n`;
+
+
+        fs.writeFileSync("tiquet_pizzeria.txt", tiket, "utf-8");
     }  
+
+    
 
 }
 
