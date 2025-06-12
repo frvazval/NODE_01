@@ -46,16 +46,19 @@ if (process.argv.length == 2) {
         console.log("Error al elegir la masa");
        
     } else {
+        let total = 0;
         let mensaje = "Has elegido pizza de ";
-        mensaje += `${masas[process.argv[2] - 1].masa}`;
+        mensaje += `${masas[process.argv[2] - 1].masa} con `;
+        total += tipoMasa.precio;
 
         for (let i = 3; i < process.argv.length - 1; i++) {
-            mensaje += `${ingredientes[process.argv[i - 1]]}, `
+            mensaje += `${ingredientes[process.argv[i] - 1].ingrediente}, `;
+            total += ingredientes[process.argv[i] - 1].precio;
         }
 
-       mensaje += `y ${ingredientes[process.argv[6]]}`;
-
-       console.log(mensaje);
+       mensaje += `y ${ingredientes[process.argv[6] - 1].ingrediente}\n`;
+       total += ingredientes[process.argv[6] - 1].precio;
+       console.log(mensaje, `Importe total : ${total.toFixed(2)}€`, "\n\n");
     }
 
     
