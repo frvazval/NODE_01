@@ -24,7 +24,7 @@ if (process.argv.length == 2) {
     // process.argv[4] -> edad
     // process.argv[5] -> asignatura
     // matricular al alumno con estos datos
-}
+};
 
 
 const jsonPrueba = [
