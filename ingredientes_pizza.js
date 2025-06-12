@@ -1,6 +1,6 @@
 const ingredientes = [
-    {"ingrediente": "masa normal", "precio": 5.00},
-    {"ingrediente": "masa de espelta", "precio": 6.00},
+    {"masa": "masa normal", "precio": 5.00},
+    {"masa": "masa de espelta", "precio": 6.00},
     {"ingrediente": "tomate", "precio": 0.50},
     {"ingrediente": "gorgonzola", "precio": 3.50},
     {"ingrediente": "mozzarella", "precio": 2.50},

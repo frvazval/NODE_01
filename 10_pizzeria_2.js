@@ -4,6 +4,13 @@ console.log(ingredientes);
 
 // Paso 1 : Mostrar el menu de opciones al usuario
 
-let menu = `
+if (process.argv.length == 2) {
+    let menu = "Pizzeria Nodini\n";
+    menu += "*".repeat(menu.length -1);
+    
+}
 
-`;
+
+
+
+
