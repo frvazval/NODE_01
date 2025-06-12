@@ -59,9 +59,7 @@ if (process.argv.length == 2) {
        mensaje += `y ${ingredientes[process.argv[6] - 1].ingrediente}\n`;
        total += ingredientes[process.argv[6] - 1].precio;
        console.log(mensaje, `Importe total : ${total.toFixed(2)}€`, "\n\n");
-    }
-
-    
+    }  
 
 }
 
