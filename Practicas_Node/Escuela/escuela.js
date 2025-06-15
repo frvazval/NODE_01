@@ -3,6 +3,7 @@
 const fs =require("node:fs");
 let existeJson = true; // Variable para comprobar si existe el archivo JSON
 let lectura = ""; // Para mostrar información por pantalla
+let alumno = {}; // Objeto para almacenar los datos del alumno
 
 // Lectura del archivo JSON
 // Compruebo si existe el archivo JSON
@@ -10,7 +11,7 @@ if (!fs.existsSync("escuela.json")) {
     // Si no existe, creo un mensaje indicandolo
     existeJson = false;
     lectura = "Aun no hay alumnos matriculados en la escuela";
-    console.log(lectura);
+    
 } else  {
     lectura = fs.readFileSync("escuela.json", "utf-8");
     let jsonLeido = JSON.parse(lectura);
@@ -40,3 +41,5 @@ if (process.argv.length == 2) {
     // process.argv[5] -> asignatura
     // matricular al alumno con estos datos
 };
+
+console.log(lectura);
