@@ -1,12 +1,14 @@
 // Escuela - Gestión de Alumnos y Asignaturas
 // Le indico que tiene que utilizar el módulo 'fs' de Node.js para manejar archivos
 const fs =require("node:fs");
+let existeJson = true; // Variable para comprobar si existe el archivo JSON
 let lectura = ""; // Para mostrar información por pantalla
 
 // Lectura del archivo JSON
 // Compruebo si existe el archivo JSON
 if (!fs.existsSync("escuela.json")) {
     // Si no existe, creo un mensaje indicandolo
+    existeJson = false;
     lectura = "Aun no hay alumnos matriculados en la escuela";
     console.log(lectura);
 } else  {
