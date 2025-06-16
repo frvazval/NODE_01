@@ -23,8 +23,10 @@ if (!fs.existsSync("escuela.json")) {
 if (process.argv.length == 2) {
     if (existeJson) {
         // Mostrar jsonLeido
-        
-    }
+        for (let i = 1; i < jsonLeido.length - 1; i++) {
+            mensaje += `${i}: Nombre: ${jsonLeido[i - 1].nombre}, Apellido: ${jsonLeido[i - 1].apellido}, Edad: ${jsonLeido[i - 1].edad}, Asignatura: ${jsonLeido[i - 1].asignatura}\n`;
+        }
+    }       
 } else if (process.argv.length == 3) {
     // process.argv[2] -> asignatura
     // mostraremos los alumnos matriculados en esa asignatura
