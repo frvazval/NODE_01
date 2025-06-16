@@ -2,7 +2,7 @@
 // Le indico que tiene que utilizar el módulo 'fs' de Node.js para manejar archivos
 const fs =require("node:fs");
 let existeJson = true; // Variable para comprobar si existe el archivo JSON
-let lectura = ""; // Para mostrar información por pantalla
+let mensaje = ""; // Para mostrar información por pantalla
 let alumno = {}; // Objeto para almacenar los datos del alumno
 
 // Lectura del archivo JSON
@@ -10,11 +10,11 @@ let alumno = {}; // Objeto para almacenar los datos del alumno
 if (!fs.existsSync("escuela.json")) {
     // Si no existe, creo un mensaje indicandolo
     existeJson = false;
-    lectura = "Aun no hay alumnos matriculados en la escuela";
+    mensaje = "Aun no hay alumnos matriculados en la escuela";
     
 } else  {
-    lectura = fs.readFileSync("escuela.json", "utf-8");
-    let jsonLeido = JSON.parse(lectura);
+    mensaje = fs.readFileSync("escuela.json", "utf-8");
+    let jsonLeido = JSON.parse(mensaje);
     // console.log(jsonLeido);
 }
 
@@ -42,4 +42,4 @@ if (process.argv.length == 2) {
     // matricular al alumno con estos datos
 };
 
-console.log(lectura);
+console.log(mensaje);
