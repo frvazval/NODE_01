@@ -22,7 +22,7 @@ if (!fs.existsSync("escuela.json")) {
 // Comprobar si se han pasado argumentos al ejecutar el script
 if (process.argv.length == 2) {
     if (existeJson) {
-        // Mostrar jsonLeido
+        // Mostrar todos los alumnos matriculados
         for (let i = 1; i < jsonLeido.length - 1; i++) {
             mensaje += `${i}: Nombre: ${jsonLeido[i - 1].nombre}, Apellido: ${jsonLeido[i - 1].apellido}, Edad: ${jsonLeido[i - 1].edad}, Asignatura: ${jsonLeido[i - 1].asignatura}\n`;
         }
