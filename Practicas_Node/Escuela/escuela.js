@@ -13,16 +13,18 @@ if (!fs.existsSync("escuela.json")) {
     mensaje = "Aun no hay alumnos matriculados en la escuela";
     
 } else  {
-    mensaje = fs.readFileSync("escuela.json", "utf-8");
-    let jsonLeido = JSON.parse(mensaje);
+    // Si existe, leo el archivo JSON
+    let lectura = fs.readFileSync("escuela.json", "utf-8");
+    let jsonLeido = JSON.parse(lectura);
     // console.log(jsonLeido);
 }
 
 // Comprobar si se han pasado argumentos al ejecutar el script
-
-
 if (process.argv.length == 2) {
-    // Mostrar JjsonLeido
+    if (existeJson) {
+        // Mostrar jsonLeido
+        
+    }
 } else if (process.argv.length == 3) {
     // process.argv[2] -> asignatura
     // mostraremos los alumnos matriculados en esa asignatura
