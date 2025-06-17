@@ -77,6 +77,7 @@ if (process.argv.length == 2) {
 
 console.log(mensaje);
 
+
 // Funciones
 
 // Función para mostrar los alumnos matriculados
