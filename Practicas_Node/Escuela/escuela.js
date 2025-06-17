@@ -17,6 +17,7 @@ if (!fs.existsSync("escuela.json")) {
     // Si existe, leo el archivo JSON
     let lectura = fs.readFileSync("escuela.json", "utf-8");
     jsonLeido = JSON.parse(lectura);
+    existeJson = true; // Ahora sabemos que el archivo JSON existe
     // console.log(jsonLeido);
 }
 
