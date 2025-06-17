@@ -93,17 +93,17 @@ function mostrarAlumnos(jsonLeido ) {
         contador++;
     }
 
-    mensaje += "-".repeat(30).concat("\n");
+    mensaje += "-".repeat(50).concat("\n");
     mensaje += `Total: ${contador} alumnos matriculados: \n`;
     return mensaje;
 }
 
 // Función para mostrar los alumnos matriculados en una asignatura
 function mostrarAlumnosPorAsignatura(jsonLeido, asignatura) {
-    let mensaje = "";
-    for (let i = 1; i < jsonLeido.length - 1; i++) {
-        if (jsonLeido[i - 1].asignatura === asignatura) {
-            mensaje += `${i}: Nombre: ${jsonLeido[i - 1].nombre}, Apellido: ${jsonLeido[i - 1].apellido}, Edad: ${jsonLeido[i - 1].edad}, Asignatura: ${jsonLeido[i - 1].asignatura}\n`;
+    mensaje = "";
+    for (let i = 0; i < jsonLeido.length; i++) {
+        if (jsonLeido[i].asignatura === asignatura) {
+            mensaje += `${i + 1}: Nombre: ${jsonLeido[i].nombre}, Apellido: ${jsonLeido[i].apellido}, Edad: ${jsonLeido[i].edad}, Asignatura: ${jsonLeido[i].asignatura}\n`;
         }
     }
     return mensaje;
