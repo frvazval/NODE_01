@@ -56,12 +56,20 @@ if (process.argv.length == 2) {
     // process.argv[4] -> edad
     // process.argv[5] -> asignatura
     // matricular al alumno con estos datos
-    if (existeJson) {
-        let nombre = process.argv[2];
-        let apellido = process.argv[3];
-        let edad = process.argv[4];
-        let asignatura = process.argv[5];
+    let nombre = process.argv[2];
+    let apellido = process.argv[3];
+    let edad = process.argv[4];
+    let asignatura = process.argv[5];
+    // Comprobar si el archivo JSON existe y si ya está matriculado
+    if (existeJson) {        
         mensaje = matricularAlumno(jsonLeido, nombre, apellido, edad, asignatura);
+    } else {
+        // Si no existe el archivo JSON, lo creo y añado el alumno        
+        alumno = { nombre: nombre, apellido: apellido, edad: edad, asignatura: asignatura };
+        jsonLeido = [alumno]; // Inicializo el array con el nuevo alumno
+        fs.writeFileSync("escuela.json", JSON.stringify(jsonLeido, null, 2));
+        mensaje = `Alumno ${nombre} ${apellido} matriculado correctamente en la asignatura ${asignatura}.\n`;
+        existeJson = true; // Ahora el archivo JSON existe
     }
 };
 
