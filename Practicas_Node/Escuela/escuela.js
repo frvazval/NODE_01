@@ -3,7 +3,7 @@
 const fs =require("node:fs");
 let jsonLeido; // Variable para almacenar el contenido del archivo JSON leído
 let existeJson = true; // Variable para comprobar si existe el archivo JSON
-let mensaje = ""; // Para mostrar información por pantalla
+let mensaje; // Para mostrar información por pantalla
 let alumno = {}; // Objeto para almacenar los datos del alumno
 
 // Lectura del archivo JSON
@@ -25,7 +25,7 @@ if (!fs.existsSync("escuela.json")) {
 if (process.argv.length == 2) {
     if (existeJson) {
         // Mostrar todos los alumnos matriculados
-        mensaje = mostrarAlumnos(jsonLeido);
+        mensaje = mostrarAlumnos(jsonLeido);        
     }       
 } else if (process.argv.length == 3) {
     // process.argv[2] -> asignatura
@@ -81,10 +81,11 @@ console.log(mensaje);
 // Funciones
 
 // Función para mostrar los alumnos matriculados
-function mostrarAlumnos(jsonLeido) {
-    let mensaje = "";
-    for (let i = 1; i < jsonLeido.length - 1; i++) {
-        mensaje += `${i}: Nombre: ${jsonLeido[i - 1].nombre}, Apellido: ${jsonLeido[i - 1].apellido}, Edad: ${jsonLeido[i - 1].edad}, Asignatura: ${jsonLeido[i - 1].asignatura}\n`;
+function mostrarAlumnos(jsonLeido ) {
+    mensaje = "Alumnos matriculados en la escuela:\n";
+    mensaje += "*".repeat(mensaje.length -1).concat("\n");
+    for (let i = 0; i < jsonLeido.length; i++) {
+        mensaje += `${i + 1}: Nombre: ${jsonLeido[i].nombre}, Apellido: ${jsonLeido[i].apellido}, Edad: ${jsonLeido[i].edad}, Asignatura: ${jsonLeido[i].asignatura}\n`;
     }
     return mensaje;
 }
