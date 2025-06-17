@@ -4,5 +4,11 @@
     "apellido": "Vazquez",
     "edad": "55",
     "asignatura": "C++"
+  },
+  {
+    "nombre": "Peter",
+    "apellido": "Parker",
+    "edad": "50",
+    "asignatura": "Python"
   }
 ]

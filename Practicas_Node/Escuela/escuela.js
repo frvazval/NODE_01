@@ -85,7 +85,7 @@ function mostrarAlumnos(jsonLeido ) {
     mensaje = "Alumnos matriculados en la escuela:\n";
     mensaje += "*".repeat(mensaje.length -1).concat("\n");
     for (let i = 0; i < jsonLeido.length; i++) {
-        mensaje += `${i + 1}: Nombre: ${jsonLeido[i].nombre}, Apellido: ${jsonLeido[i].apellido}, Edad: ${jsonLeido[i].edad}, Asignatura: ${jsonLeido[i].asignatura}\n`;
+        mensaje += `${i + 1}: ${jsonLeido[i].nombre} ${jsonLeido[i].apellido}, Edad: ${jsonLeido[i].edad}, Asignatura: ${jsonLeido[i].asignatura}\n`;
     }
     return mensaje;
 }
