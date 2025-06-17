@@ -28,6 +28,11 @@ if (process.argv.length == 2) {
 } else if (process.argv.length == 3) {
     // process.argv[2] -> asignatura
     // mostraremos los alumnos matriculados en esa asignatura
+    if (existeJson) {
+        // Mostrar todos los alumnos matriculados
+        let asignatura = process.argv[2];
+        mensaje = mostrarAlumnosPorAsignatura(jsonLeido, asignatura);
+    }         
 } else if (process.argv.length == 4) {
     // process.argv[2] -> nombre
     // process.argv[3] -> apellido
@@ -58,3 +63,12 @@ function mostrarAlumnos(jsonLeido) {
 }
 
 // Función para mostrar los alumnos matriculados en una asignatura
+function mostrarAlumnosPorAsignatura(jsonLeido, asignatura) {
+    let mensaje = "";
+    for (let i = 1; i < jsonLeido.length - 1; i++) {
+        if (jsonLeido[i - 1].asignatura === asignatura) {
+            mensaje += `${i}: Nombre: ${jsonLeido[i - 1].nombre}, Apellido: ${jsonLeido[i - 1].apellido}, Edad: ${jsonLeido[i - 1].edad}, Asignatura: ${jsonLeido[i - 1].asignatura}\n`;
+        }
+    }
+    return mensaje;
+}
