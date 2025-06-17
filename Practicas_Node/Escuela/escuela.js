@@ -8,14 +8,14 @@ let alumno = {}; // Objeto para almacenar los datos del alumno
 
 // Lectura del archivo JSON
 // Compruebo si existe el archivo JSON
-if (!fs.existsSync("/Escuela/escuela.json")) {
+if (!fs.existsSync("escuela.json")) {
     // Si no existe, creo un mensaje indicandolo
     existeJson = false;
     mensaje = "Aun no hay alumnos matriculados en la escuela";
     
 } else  {
     // Si existe, leo el archivo JSON
-    let lectura = fs.readFileSync("/Escuela/escuela.json", "utf-8");
+    let lectura = fs.readFileSync("escuela.json", "utf-8");
     jsonLeido = JSON.parse(lectura);
     // console.log(jsonLeido);
 }
@@ -68,7 +68,7 @@ if (process.argv.length == 2) {
         // Si no existe el archivo JSON, lo creo y añado el alumno        
         alumno = { nombre: nombre, apellido: apellido, edad: edad, asignatura: asignatura };
         jsonLeido = [alumno]; // Inicializo el array con el nuevo alumno
-        fs.writeFileSync("/Escuela/escuela.json", JSON.stringify(jsonLeido, null, 2));
+        fs.writeFileSync("escuela.json", JSON.stringify(jsonLeido, null, 2));
         mensaje = `Alumno ${nombre} ${apellido} matriculado correctamente en la asignatura ${asignatura}.\n`;
         existeJson = true; // Ahora el archivo JSON existe
     }
@@ -125,7 +125,7 @@ function borrarAlumno(jsonLeido, nombre, apellido) {
         mensaje = `Alumno ${nombre} ${apellido} no encontrado.\n`;
     }
     // Guardar los cambios en el archivo JSON
-    fs.writeFileSync("/Escuela/escuela.json", JSON.stringify(jsonLeido, null, 2));
+    fs.writeFileSync("escuela.json", JSON.stringify(jsonLeido, null, 2));
     return mensaje;
 }
 
@@ -143,7 +143,7 @@ function matricularAlumno(jsonLeido, nombre, apellido, edad, asignatura) {
     alumno = { nombre: nombre, apellido: apellido, edad: edad, asignatura: asignatura };
     jsonLeido.push(alumno);
     // Guardar los cambios en el archivo JSON
-    fs.writeFileSync("/Escuela/escuela.json", JSON.stringify(jsonLeido, null, 2));
+    fs.writeFileSync("escuela.json", JSON.stringify(jsonLeido, null, 2));
     mensaje = `Alumno ${nombre} ${apellido} matriculado correctamente en la asignatura ${asignatura}.\n`;
     return mensaje;
 }
