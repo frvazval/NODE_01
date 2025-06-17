@@ -23,9 +23,7 @@ if (!fs.existsSync("escuela.json")) {
 if (process.argv.length == 2) {
     if (existeJson) {
         // Mostrar todos los alumnos matriculados
-        for (let i = 1; i < jsonLeido.length - 1; i++) {
-            mensaje += `${i}: Nombre: ${jsonLeido[i - 1].nombre}, Apellido: ${jsonLeido[i - 1].apellido}, Edad: ${jsonLeido[i - 1].edad}, Asignatura: ${jsonLeido[i - 1].asignatura}\n`;
-        }
+        mensaje = mostrarAlumnos(jsonLeido);
     }       
 } else if (process.argv.length == 3) {
     // process.argv[2] -> asignatura
@@ -47,3 +45,16 @@ if (process.argv.length == 2) {
 };
 
 console.log(mensaje);
+
+// Funciones
+
+// Función para mostrar los alumnos matriculados
+function mostrarAlumnos(jsonLeido) {
+    let mensaje = "";
+    for (let i = 1; i < jsonLeido.length - 1; i++) {
+        mensaje += `${i}: Nombre: ${jsonLeido[i - 1].nombre}, Apellido: ${jsonLeido[i - 1].apellido}, Edad: ${jsonLeido[i - 1].edad}, Asignatura: ${jsonLeido[i - 1].asignatura}\n`;
+    }
+    return mensaje;
+}
+
+// Función para mostrar los alumnos matriculados en una asignatura
