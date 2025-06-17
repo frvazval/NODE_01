@@ -5,6 +5,7 @@ let jsonLeido; // Variable para almacenar el contenido del archivo JSON leído
 let existeJson = true; // Variable para comprobar si existe el archivo JSON
 let mensaje; // Para mostrar información por pantalla
 let alumno = {}; // Objeto para almacenar los datos del alumno
+let contador; // Contador para los alumnos
 
 // Lectura del archivo JSON
 // Compruebo si existe el archivo JSON
@@ -85,9 +86,15 @@ console.log(mensaje);
 function mostrarAlumnos(jsonLeido ) {
     mensaje = "Alumnos matriculados en la escuela:\n";
     mensaje += "*".repeat(mensaje.length -1).concat("\n");
+    contador = 0; // Inicializo el contador
+
     for (let i = 0; i < jsonLeido.length; i++) {
         mensaje += `${i + 1}: ${jsonLeido[i].nombre} ${jsonLeido[i].apellido}, Edad: ${jsonLeido[i].edad}, Asignatura: ${jsonLeido[i].asignatura}\n`;
+        contador++;
     }
+
+    mensaje += "-".repeat(30).concat("\n");
+    mensaje += `Total: ${contador} alumnos matriculados: \n`;
     return mensaje;
 }
 
