@@ -135,7 +135,7 @@ function mostrarAsignaturasAlumno(jsonLeido, nombre, apellido) {
         return mensaje;
     }
 
-    mensaje += "-".repeat(50).concat("\n");
+    mensaje += "-".repeat(70).concat("\n");
     return mensaje;
 }
 
