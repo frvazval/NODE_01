@@ -117,12 +117,25 @@ function mostrarAlumnosPorAsignatura(jsonLeido, asignatura) {
 
 // Función para mostrar las asignaturas de un alumno
 function mostrarAsignaturasAlumno(jsonLeido, nombre, apellido) {
-    mensaje = "";
-    for (let i = 0; i < jsonLeido.length - 1; i++) {
-        if (jsonLeido[i + 1].nombre === nombre && jsonLeido[i].apellido === apellido) {
-            mensaje += `Asignaturas de ${nombre} ${apellido}: ${jsonLeido[i].asignatura}\n`;
+    mensaje = `El alumno ${nombre} ${apellido} está matriculado en las siguientes asignaturas:\n`;
+    mensaje += "*".repeat(mensaje.length -1).concat("\n");    
+
+    let encontrado = false; // Variable para comprobar si se ha encontrado el alumno
+    // Recorro el array de alumnos
+
+    for (let i = 0; i < jsonLeido.length; i++) {
+        if (jsonLeido[i].nombre === nombre && jsonLeido[i].apellido === apellido) {
+            mensaje += `\t-- ${jsonLeido[i].asignatura}\n`;
+            encontrado = true; // Si se encuentra el alumno, cambio la variable a true
         }
     }
+
+    if (!encontrado) {
+        mensaje = `Alumno ${nombre} ${apellido} no encontrado.\n`;
+        return mensaje;
+    }
+
+    mensaje += "-".repeat(50).concat("\n");
     return mensaje;
 }
 
