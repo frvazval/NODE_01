@@ -149,7 +149,7 @@ function borrarAlumno(jsonLeido, nombre, apellido, numero) {
                 jsonLeido.splice(i, 1); // Elimina el alumno del array
                 encontrado = true;
                 mensaje = `Alumno ${nombre} ${apellido} borrado correctamente.\n`;
-                break;
+                
             }
         }
             if (!encontrado) {

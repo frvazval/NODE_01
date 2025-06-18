@@ -1,26 +1,20 @@
 [
   {
-    "nombre": "Francisco",
-    "apellido": "Vazquez",
-    "edad": "55",
-    "asignatura": "C++"
-  },
-  {
     "nombre": "Peter",
     "apellido": "Parker",
     "edad": "50",
     "asignatura": "Python"
   },
   {
-    "nombre": "Bruce",
-    "apellido": "Wayne",
-    "edad": "60",
-    "asignatura": "PHP"
-  },
-  {
     "nombre": "Francisco",
     "apellido": "Vazquez",
     "edad": "55",
-    "asignatura": "Python"
+    "asignatura": "Java"
+  },
+  {
+    "nombre": "Peter",
+    "apellido": "Parker",
+    "edad": "50",
+    "asignatura": "HTML"
   }
 ]
