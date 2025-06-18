@@ -127,7 +127,7 @@ function mostrarAsignaturasAlumno(jsonLeido, nombre, apellido) {
     // Recorro el array de alumnos
 
     for (let i = 0; i < jsonLeido.length; i++) {
-        if (jsonLeido[i].nombre === nombre && jsonLeido[i].apellido === apellido) {
+        if (jsonLeido[i].nombre.toLowerCase() === nombre.toLowerCase() && jsonLeido[i].apellido.toLowerCase() === apellido.toLowerCase()) {
             mensaje += `\t-- ${jsonLeido[i].asignatura}\n`;
             encontrado = true; // Si se encuentra el alumno, cambio la variable a true
         }
