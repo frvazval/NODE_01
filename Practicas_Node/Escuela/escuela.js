@@ -100,21 +100,26 @@ function mostrarAlumnos(jsonLeido ) {
 
 // Función para mostrar los alumnos matriculados en una asignatura
 function mostrarAlumnosPorAsignatura(jsonLeido, asignatura) {
-    mensaje = "";
+    mensaje = `Alumnos matriculados en ${asignatura}\n`;
+    mensaje += "*".repeat(mensaje.length -1).concat("\n");
+    contador = 0; // Inicializo el contador
     for (let i = 0; i < jsonLeido.length; i++) {
         if (jsonLeido[i].asignatura === asignatura) {
-            mensaje += `${i + 1}: Nombre: ${jsonLeido[i].nombre}, Apellido: ${jsonLeido[i].apellido}, Edad: ${jsonLeido[i].edad}, Asignatura: ${jsonLeido[i].asignatura}\n`;
+            mensaje += `${i + 1}: ${jsonLeido[i].nombre} ${jsonLeido[i].apellido} Edad: ${jsonLeido[i].edad}\n`;
+            contador++;
         }
     }
+    mensaje += "-".repeat(50).concat("\n");
+    mensaje += `Total: ${contador} alumnos matriculados\n`;
     return mensaje;
 }
 
 // Función para mostrar las asignaturas de un alumno
 function mostrarAsignaturasAlumno(jsonLeido, nombre, apellido) {
-    let mensaje = "";
-    for (let i = 1; i < jsonLeido.length - 1; i++) {
-        if (jsonLeido[i - 1].nombre === nombre && jsonLeido[i - 1].apellido === apellido) {
-            mensaje += `Asignaturas de ${nombre} ${apellido}: ${jsonLeido[i - 1].asignatura}\n`;
+    mensaje = "";
+    for (let i = 0; i < jsonLeido.length - 1; i++) {
+        if (jsonLeido[i + 1].nombre === nombre && jsonLeido[i].apellido === apellido) {
+            mensaje += `Asignaturas de ${nombre} ${apellido}: ${jsonLeido[i].asignatura}\n`;
         }
     }
     return mensaje;
