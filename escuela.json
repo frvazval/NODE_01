@@ -16,5 +16,11 @@
     "apellido": "Wayne",
     "edad": "60",
     "asignatura": "PHP"
+  },
+  {
+    "nombre": "Francisco",
+    "apellido": "Vazquez",
+    "edad": "55",
+    "asignatura": "Python"
   }
 ]

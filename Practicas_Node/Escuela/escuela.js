@@ -149,9 +149,9 @@ function borrarAlumno(jsonLeido, nombre, apellido) {
 function matricularAlumno(jsonLeido, nombre, apellido, edad, asignatura) {
     let mensaje = "";
     // Comprobar si el alumno ya está matriculado
-    for (let i = 1; i < jsonLeido.length - 1; i++) {
-        if (jsonLeido[i - 1].nombre === nombre && jsonLeido[i - 1].apellido === apellido) {
-            mensaje = `El alumno ${nombre} ${apellido} ya está matriculado.\n`;
+    for (let i = 0; i < jsonLeido.length - 1; i++) {
+        if (jsonLeido[i].nombre === nombre && jsonLeido[i].apellido === apellido && jsonLeido[i].asignatura === asignatura) {
+            mensaje = `El alumno ${nombre} ${apellido} ya está matriculado en la asignatura ${asignatura}.\n`;
             return mensaje;
         }
     }
