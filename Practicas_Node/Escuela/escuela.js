@@ -94,7 +94,7 @@ function mostrarAlumnos(jsonLeido ) {
     }
 
     mensaje += "-".repeat(50).concat("\n");
-    mensaje += `Total: ${contador} alumnos matriculados: \n`;
+    mensaje += `Total: ${contador} alumnos matriculados\n`;
     return mensaje;
 }
 
