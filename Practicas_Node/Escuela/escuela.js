@@ -90,7 +90,7 @@ function mostrarAlumnos(jsonLeido ) {
     contador = 0; // Inicializo el contador
 
     for (let i = 0; i < jsonLeido.length; i++) {
-        mensaje += `${i + 1}: ${jsonLeido[i].nombre} ${jsonLeido[i].apellido}, Edad: ${jsonLeido[i].edad}, Asignatura: ${jsonLeido[i].asignatura}\n`;
+        mensaje += `${jsonLeido[i].nombre} ${jsonLeido[i].apellido}, Edad: ${jsonLeido[i].edad}, Asignatura: ${jsonLeido[i].asignatura}\n`;
         contador++;
     }
 
@@ -104,9 +104,12 @@ function mostrarAlumnosPorAsignatura(jsonLeido, asignatura) {
     mensaje = `Alumnos matriculados en ${asignatura}\n`;
     mensaje += "*".repeat(mensaje.length -1).concat("\n");
     contador = 0; // Inicializo el contador
+    let asig;
+
     for (let i = 0; i < jsonLeido.length; i++) {
-        if (jsonLeido[i].asignatura === asignatura) {
-            mensaje += `${i + 1}: ${jsonLeido[i].nombre} ${jsonLeido[i].apellido} Edad: ${jsonLeido[i].edad}\n`;
+        asig = jsonLeido[i].asignatura.toLowerCase(); // Normalizo la asignatura a minúsculas
+        if (asig === asignatura.toLowerCase()) {
+            mensaje += `${jsonLeido[i].nombre} ${jsonLeido[i].apellido}, Edad: ${jsonLeido[i].edad}\n`;
             contador++;
         }
     }
