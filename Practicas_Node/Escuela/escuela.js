@@ -51,7 +51,8 @@ if (process.argv.length == 2) {
     if (existeJson) {
         let nombre = process.argv[2];
         let apellido = process.argv[3];
-        mensaje = borrarAlumno(jsonLeido, nombre, apellido);
+        let numero = process.argv[4];
+        mensaje = borrarAlumno(jsonLeido, nombre, apellido, numero);
     }
 } else if (process.argv.length == 6) {
     // process.argv[2] -> nombre
@@ -126,11 +127,11 @@ function mostrarAsignaturasAlumno(jsonLeido, nombre, apellido) {
 }
 
 // Función para borrar un alumno
-function borrarAlumno(jsonLeido, nombre, apellido) {
+function borrarAlumno(jsonLeido, nombre, apellido, numero) {
     let mensaje = "";
     let encontrado = false;
     for (let i = 1; i < jsonLeido.length - 1; i++) {
-        if (jsonLeido[i - 1].nombre === nombre && jsonLeido[i - 1].apellido === apellido) {
+        if (jsonLeido[i - 1].nombre === nombre && jsonLeido[i - 1].apellido === apellido && jsonLeido[i - 1].numero < 0 ) {
             jsonLeido.splice(i - 1, 1); // Elimina el alumno del array
             encontrado = true;
             mensaje = `Alumno ${nombre} ${apellido} borrado correctamente.\n`;
