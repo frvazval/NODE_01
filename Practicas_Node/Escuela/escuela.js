@@ -140,22 +140,28 @@ function mostrarAsignaturasAlumno(jsonLeido, nombre, apellido) {
 }
 
 // Función para borrar un alumno
-function borrarAlumno(jsonLeido, nombre, apellido, numero) {
-    let mensaje = "";
+function borrarAlumno(jsonLeido, nombre, apellido, numero) {    
     let encontrado = false;
-    for (let i = 1; i < jsonLeido.length - 1; i++) {
-        if (jsonLeido[i - 1].nombre === nombre && jsonLeido[i - 1].apellido === apellido && jsonLeido[i - 1].numero < 0 ) {
-            jsonLeido.splice(i - 1, 1); // Elimina el alumno del array
-            encontrado = true;
-            mensaje = `Alumno ${nombre} ${apellido} borrado correctamente.\n`;
-            break;
+
+    if (numero == "-1") {
+        for (let i = 0; i < jsonLeido.length; i++) {
+            if (jsonLeido[i].nombre === nombre && jsonLeido[i].apellido === apellido) {
+                jsonLeido.splice(i, 1); // Elimina el alumno del array
+                encontrado = true;
+                mensaje = `Alumno ${nombre} ${apellido} borrado correctamente.\n`;
+                break;
+            }
         }
+            if (!encontrado) {
+                mensaje = `Alumno ${nombre} ${apellido} no encontrado.\n`;
+            }
+        // Guardar los cambios en el archivo JSON
+        fs.writeFileSync("escuela.json", JSON.stringify(jsonLeido, null, 2));        
+    } else { 
+        mensaje = "Para borrar un alumno, hay que poner en el tercer argumento -1\n";
+        mensaje += `El alumno ${nombre} ${apellido} no ha sido borrado.\n`;        
     }
-    if (!encontrado) {
-        mensaje = `Alumno ${nombre} ${apellido} no encontrado.\n`;
-    }
-    // Guardar los cambios en el archivo JSON
-    fs.writeFileSync("escuela.json", JSON.stringify(jsonLeido, null, 2));
+
     return mensaje;
 }
 
